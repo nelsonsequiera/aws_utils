@@ -36,7 +36,7 @@ aws_utils.s3.get_object('bucket_name', 'test_data.json', output_format='dict')
 
 <a href="https://ibb.co/TTtqnDc"><img src="https://i.ibb.co/3scY851/AWS-boto-wrapper-2.png" alt="AWS-boto-wrapper-2" border="0"></a>
 
-Edit diagram link [here](https://creately.com/diagram/jw4mq44s2/FzR84qSmt5M5hQTnFntkkXWZk%3D)
+Edit diagram [link](https://creately.com/diagram/jw4mq44s2/FzR84qSmt5M5hQTnFntkkXWZk%3D)
 
 #### Currently supported
 
