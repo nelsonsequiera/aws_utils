@@ -34,7 +34,7 @@ aws_utils.s3.get_object('bucket_name', 'test_data.json', output_format='dict')
 
 ### How it works
 
-![ How it works](https://i.ibb.co/3scY851/AWS-boto-wrapper-2.png)
+<a href="https://ibb.co/TTtqnDc"><img src="https://i.ibb.co/3scY851/AWS-boto-wrapper-2.png" alt="AWS-boto-wrapper-2" border="0"></a>
 
 View the full diagram [here](https://creately.com/diagram/jw4mq44s2/yhwe8GtWNZjnMLuaOYHFIRgbvRk%3D)
 
