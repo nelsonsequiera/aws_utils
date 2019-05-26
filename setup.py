@@ -18,10 +18,10 @@ setuptools.setup(
     scripts=[],
     author="Nelson Sequiera",
     author_email="nelsonsequiera@gmail.com",
-    description="AWS utils",
+    description="AWS utils for lambda",
     long_description=open('README.md').read(),
     long_description_content_type="text/markdown",
-    url="https://github.com/nelsonsequiera/aws_utils",
+    url="https://github.com/nelsonsequiera/aws_utils_for_lambda",
     packages=setuptools.find_packages(),
     install_requires=[
         "boto3==1.9.120"
