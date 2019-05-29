@@ -13,10 +13,10 @@ def get_item(table_name, key, region, output_format=None, raise_exception=False)
         data = full_response.get('Item')  # if no item, key exists but has no attribute
     except Exception as e:
         print(e)
-        if raise_exception:
-            raise e
         exception = e
     finally:
+        if raise_exception:
+            raise exception
         return ResponseObject(data=data,
                               exception=exception,
                               output_format=output_format,
@@ -33,10 +33,10 @@ def put_item(table_name, item, region, output_format=None, raise_exception=False
         full_response = dynamodb.meta.client.put_item(TableName=table_name, Item=item)
     except Exception as e:
         print(e)
-        if raise_exception:
-            raise e
         exception = e
     finally:
+        if raise_exception:
+            raise exception
         return ResponseObject(data=data,
                               exception=exception,
                               output_format=output_format,
