@@ -2,7 +2,7 @@ import boto3
 from aws_utils.response import ResponseObject
 
 
-def get_item(table_name, key, region, output_format=None):
+def get_item(table_name, key, region, output_format=None, raise_exception=False):
     data = None
     exception = None
     full_response = None
@@ -13,6 +13,8 @@ def get_item(table_name, key, region, output_format=None):
         data = full_response.get('Item')  # if no item, key exists but has no attribute
     except Exception as e:
         print(e)
+        if raise_exception:
+            raise e
         exception = e
     finally:
         return ResponseObject(data=data,
@@ -21,7 +23,7 @@ def get_item(table_name, key, region, output_format=None):
                               full_response=full_response).response()
 
 
-def put_item(table_name, item, region, output_format=None):
+def put_item(table_name, item, region, output_format=None, raise_exception=False):
     data = None
     exception = None
     full_response = None
@@ -32,6 +34,8 @@ def put_item(table_name, item, region, output_format=None):
         full_response = dynamodb.meta.client.put_item(TableName=table_name, Item=item)
     except Exception as e:
         print(e)
+        if raise_exception:
+            raise e
         exception = e
     finally:
         return ResponseObject(data=data,
