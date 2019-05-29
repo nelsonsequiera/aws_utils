@@ -2,7 +2,7 @@ import boto3
 from aws_utils.response import ResponseObject
 
 
-def upload_file(file, bucket, file_name, output_format=None):
+def upload_file(file, bucket, file_name, output_format=None, raise_exception=False):
     exception = None
     session = boto3.session.Session()
     s3 = session.resource('s3')
@@ -10,13 +10,15 @@ def upload_file(file, bucket, file_name, output_format=None):
         s3.meta.client.upload_file(file, bucket, file_name)
     except Exception as e:
         print(e)
+        if raise_exception:
+            raise e
         exception = e
     finally:
         return ResponseObject(exception=exception,
                               output_format=output_format).response()
 
 
-def get_object(bucket, file_path, output_format=None):
+def get_object(bucket, file_path, output_format=None, raise_exception=False):
     data = None
     exception = None
     full_response = None
@@ -27,6 +29,8 @@ def get_object(bucket, file_path, output_format=None):
         data = full_response.get('Body').read().decode('utf-8')
     except Exception as e:
         print(e)
+        if raise_exception:
+            raise e
         exception = e
     finally:
         return ResponseObject(data=data,
