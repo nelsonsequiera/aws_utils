@@ -26,8 +26,9 @@ setuptools.setup(
     install_requires=[
         "boto3==1.9.120"
     ],
+    python_requires='>=2.7',
     classifiers=[
-        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3, 2.7",
         "Operating System :: OS Independent",
         "Intended Audience :: Developers",
         "Natural Language :: English",
