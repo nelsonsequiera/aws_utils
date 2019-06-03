@@ -1,3 +1,4 @@
+import sys
 import json
 import traceback
 
@@ -5,16 +6,17 @@ import traceback
 class ResponseObject:
     def __init__(self, *args, **kwargs):
         exception = kwargs.get('exception')
+        self.traceback = exception.__traceback__ if sys.version[0] < 3 else None
         self.data = kwargs.get('data')
         self.success = False if exception else True
         self.output_format = kwargs.get('output_format') if kwargs.get('output_format') else 'dict'
         self.error = type(exception).__name__ if exception else None
         self.error_message = str(exception) if exception else None
         self.full_response = kwargs.get('full_response')
-        self.short_traceback = traceback.format_tb(exception.__traceback__) if exception else None
+        self.short_traceback = traceback.format_tb(self.traceback) if exception else None
         self.full_traceback = traceback.format_exception(etype=type(exception),
                                                          value=exception,
-                                                         tb=exception.__traceback__) if exception else None
+                                                         tb=self.traceback) if exception else None
 
     def response(self):
         if self.output_format == 'json':
