@@ -28,7 +28,8 @@ setuptools.setup(
     ],
     python_requires='>=2.7',
     classifiers=[
-        "Programming Language :: Python :: 3, 2.7",
+        "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 2.7",
         "Operating System :: OS Independent",
         "Intended Audience :: Developers",
         "Natural Language :: English",
