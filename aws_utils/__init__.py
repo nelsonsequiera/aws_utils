@@ -1,3 +1,3 @@
-__version__ = '1.0.0'
+__version__ = '1.0.1'
 
-from aws_utils import s3, dynamodb
+from aws_utils import dynamodb, s3
