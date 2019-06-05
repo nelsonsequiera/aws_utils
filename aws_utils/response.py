@@ -6,7 +6,7 @@ import traceback
 class ResponseObject:
     def __init__(self, *args, **kwargs):
         exception = kwargs.get('exception')
-        self.traceback = exception.__traceback__ if sys.version[0] < 3 else None
+        self.traceback = exception.__traceback__ if int(sys.version[0]) == 3 and exception is not None else None
         self.data = kwargs.get('data')
         self.success = False if exception else True
         self.output_format = kwargs.get('output_format') if kwargs.get('output_format') else 'dict'
