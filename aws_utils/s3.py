@@ -13,8 +13,8 @@ def upload_file(file, bucket, file_name, output_format=None, raise_exception=Fal
         print(e)
         exception = e
     finally:
-        if raise_exception:
-            raise exception
+        if raise_exception and exception:
+            raise Exception(exception)
         return ResponseObject(exception=exception,
                               output_format=output_format).response()
 
@@ -32,8 +32,8 @@ def get_object(bucket, file_path, output_format=None, raise_exception=False):
         print(e)
         exception = e
     finally:
-        if raise_exception:
-            raise exception
+        if raise_exception and exception:
+            raise Exception(exception)
         return ResponseObject(data=data,
                               exception=exception,
                               output_format=output_format,

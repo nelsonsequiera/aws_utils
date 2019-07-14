@@ -15,8 +15,8 @@ def get_item(table_name, key, region, output_format=None, raise_exception=False)
         print(e)
         exception = e
     finally:
-        if raise_exception:
-            raise exception
+        if raise_exception and exception:
+            raise Exception(exception)
         return ResponseObject(data=data,
                               exception=exception,
                               output_format=output_format,
@@ -35,8 +35,8 @@ def put_item(table_name, item, region, output_format=None, raise_exception=False
         print(e)
         exception = e
     finally:
-        if raise_exception:
-            raise exception
+        if raise_exception and exception:
+            raise Exception(exception)
         return ResponseObject(data=data,
                               exception=exception,
                               output_format=output_format,
