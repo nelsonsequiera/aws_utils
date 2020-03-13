@@ -24,7 +24,7 @@ setuptools.setup(
     url="https://github.com/nelsonsequiera/aws_utils_for_lambda",
     packages=setuptools.find_packages(),
     install_requires=[
-        "boto3==1.9.120"
+        "boto3==1.11.13"
     ],
     python_requires='>=2.7',
     classifiers=[
